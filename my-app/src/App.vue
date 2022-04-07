@@ -1,12 +1,6 @@
 <template>
  <div :id="$style.app">
-
-  <ApartmentsItem
-  :description="apartment.descr"
-  :rating="apartment.rating" 
-  :price="apartment.price"
-  :imgSrc="apartment.imgSrc"
-  />
+   <ApartmentsList :items="apartments"/>
   <!-- <MyButton @click="incrementClicks" :outlined="true">Click me</MyButton> -->
   
   <!-- <StarRating :rating="3.4"/> -->
@@ -19,24 +13,18 @@
 // import MyButton from '@/components/MyButton.vue'
 
 // import StarRating from '@/components/StarRating.vue'
-import ApartmentsItem from '@/components/apartment/ApartmentsItem.vue'
+import ApartmentsList from '@/components/apartment/ApartmentsList.vue'
+import apartments from '@/components/apartment/apartments.js'
 
 export default {
   name: 'App',
   components: {
   //  StarRating,
-   ApartmentsItem
+   ApartmentsList
   },
   data() {
     return {
-      apartment: {
-        id: 1,
-        descr: 'Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius, aspernatur?Lorem, ipsum dolor sit amet consectetur adipisicing elit. Eius, aspernatur?',
-        price: 3000,
-        rating: 3.5,
-        imgSrc: 'https://www.timeoutdubai.com/cloud/timeoutdubai/2021/09/11/hfpqyV7B-IMG-Dubai-UAE.jpg'
-
-      }
+      apartments
     }
   },
   computed: {
