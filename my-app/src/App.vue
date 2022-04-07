@@ -1,7 +1,10 @@
 <template>
- <div id="app">
+ <div :id="$style.app">
   <MyTitle></MyTitle>
-  <MyButton>Click me</MyButton>
+  <h2>{{ title  }}</h2>
+  <MyButton @click="incrementClicks" :outlined="true">Click me</MyButton>
+  <!-- <MyButton @click="incrementClicks" :outlined="true">Click me</MyButton> -->
+  <!-- <MyButton @click="incrementClicks" outlined>Click me</MyButton> -->
  </div>
 </template>
 
@@ -14,11 +17,26 @@ export default {
   components: {
    MyTitle,
    MyButton
+  },
+  data() {
+    return {
+      amountOfClicks: 0
+      }
+  },
+  computed: {
+    title() {
+      return `Amount of clicks: ${this.amountOfClicks}`
+    }
+  },
+  methods: {
+    incrementClicks() {
+      this.amountOfClicks += 1
+    }
   }
 }
 </script>
 
-<style>
+<style module>
 #app {
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
