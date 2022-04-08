@@ -1,6 +1,6 @@
 <template>
 <MyContainer> 
-    <form class="form" @submit.prevent>
+    <form class="form" @submit.prevent="onFormSubmit">
 <CustomSelect :items="cities" v-model="city" class="form__select"/>
 <CustomInput v-model="price" placeholder="Price, from"/>
 

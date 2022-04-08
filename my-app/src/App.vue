@@ -72,8 +72,8 @@ export default {
     filter({ city, price }) {
       this.filters.city = city;
       this.filters.price = price;
-      // console.log(this.filters.price);
-      // console.log(this.filteredApartments);
+      console.log(this.filters.price);
+      console.log(this.filteredApartments);
     },
     filterByCityName(apartments) {
       if (!this.filters.city) return apartments;
