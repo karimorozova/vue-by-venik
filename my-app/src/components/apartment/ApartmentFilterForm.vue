@@ -1,6 +1,6 @@
 <template>
 <MyContainer> 
-    <form class="form" @submit.prevent="onFormSubmit">
+    <form class="form" @submit.prevent>
 <CustomSelect :items="cities" v-model="city" class="form__select"/>
 <CustomInput v-model="price" placeholder="Price, from"/>
 
@@ -24,9 +24,12 @@ import MyButton from '@/components/MyButton.vue'
         },
         data() {
             return {
+                
                 price: '',
                 city: ''
-            }
+                }
+                
+            
         },
         computed: {
             cities() {
