@@ -10,6 +10,7 @@
         :rating="apartment.rating"
         :imgSrc="apartment.imgUrl"
         class="apartments-list__item"
+        @click="onItemClick"
         /> 
      </template>
      <!-- <template v-slot:description>Lorem ipsum dolor sit, amet consectetur adipisicing elit. Exercitationem perferendis minima eos fugit error placeat, laboriosam odio dolores impedit labore tempora, facilis ab dignissimos temporibus veniam. In neque dicta recusandae.</template> -->
@@ -46,6 +47,9 @@ export default {
 
   },
   methods: {
+    onItemClick() {
+      console.log('item clicked');
+    }
   }
 }
 </script>

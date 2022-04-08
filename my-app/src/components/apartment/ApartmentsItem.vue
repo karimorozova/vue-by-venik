@@ -1,5 +1,6 @@
 <template>
-    <div class="apartments-item">
+    <!-- <div class="apartments-item" @click="$emit('click')"> -->
+       <div class="apartments-item">
         <div class="apartments-item__inner">
             <img :src="imgSrc" alt="" class="apartments-item__photo">
             <div class="apartments-item__content">
@@ -12,6 +13,7 @@
                 <div class="apartments-item__price">
                    UAH {{ price }}
                 </div>
+                <a href="https://google.com" @click.prevent.stop="onLinkClick">Google</a>
             </div>
         </div>
     </div>
@@ -41,6 +43,15 @@
                 type: String,
                 default: ''
             }
+        },
+        methods: {
+          log(index, e) {
+            console.log(e);
+            console.log(index);
+          },
+          onLinkClick(e) {
+            console.log(e);
+          }
         }
     }
 </script>
