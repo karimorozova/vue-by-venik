@@ -1,12 +1,13 @@
 <template>
     <div class="container">
-        <slot></slot> 
+        <!-- Default slot -->
+        <slot>default value</slot> 
     </div>
 </template>
 
 <script>
     export default {
-        name: 'MyLovelyContainer'
+        name: 'MyContainer'
     }
 </script>
 

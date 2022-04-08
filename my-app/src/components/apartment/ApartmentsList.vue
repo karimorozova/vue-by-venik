@@ -1,7 +1,15 @@
 <template>
-<MyLovelyContainer>
+<MyContainer>
+    <!-- Named slot -->
+    <slot name="title"></slot>
     <div class="apartments-list">
-        
+        <!-- Scoped slot -->
+      <template v-for="apartment in items">
+          <slot name="apartment"  :apartment="apartment">
+              
+          </slot>
+      </template>
+<!--         
         <ApartmentsItem
         v-for="{id, descr, price, rating, imgUrl} in items"
         :key="id"
@@ -9,20 +17,23 @@
         :price="price"
         :rating="rating"
         :imgSrc="imgUrl"
-        />
-      
+        class="apartments-list__item"
+        /> -->
+
     </div>
-     </MyLovelyContainer>
+     <!-- Named slot -->
+    <slot name="description"></slot>
+     </MyContainer>
 </template>
 
 <script>
-import ApartmentsItem from '@/components/apartment/ApartmentsItem'
-import MyLovelyContainer from '@/components/shared/MyLovelyContainer.vue'
+// import ApartmentsItem from '@/components/apartment/ApartmentsItem'
+import MyContainer from '@/components/shared/MyContainer.vue'
     export default {
         name: 'ApartmentsList',
         components: {
-            ApartmentsItem,
-            MyLovelyContainer
+            // ApartmentsItem,
+            MyContainer
         },
         props: {
             items: {
