@@ -1,6 +1,8 @@
 <template>
  <div :id="$style.app">
-   <div class="content" style="flex-grow: 1;">
+   
+   <div class="content" style="flex-grow: 1; padding-top: 120px;">
+     <MyHeader></MyHeader>
    <h2>{{text}}</h2>
   
    <!-- <input type="text" v-model="text">  -->
@@ -47,6 +49,7 @@ import apartments from '@/components/apartment/apartments.js'
 // import CustomSelect from '@/components/shared/CustomSelect.vue'
 import ApartmentFilterForm from '@/components/apartment/ApartmentFilterForm.vue'
 import MyFooter from '@/components/MyFooter.vue'
+import MyHeader from '@/components/MyHeader.vue'
 import MyContainer from '@/components/shared/MyContainer.vue'
 
 export default {
@@ -57,6 +60,7 @@ export default {
    ApartmentsItem,
    MyFooter,
    MyContainer,
+   MyHeader,
   //  CustomInput,
   //  CustomSelect,
    ApartmentFilterForm
@@ -114,5 +118,6 @@ export default {
 }
 .content {
   flex-grow: 1;
+  padding-top: 120px;
 }
 </style>

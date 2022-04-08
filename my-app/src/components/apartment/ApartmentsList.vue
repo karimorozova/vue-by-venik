@@ -1,5 +1,5 @@
 <template>
-<MyContainer>
+
     <!-- Named slot -->
     <slot name="title"></slot>
     <div class="apartments-list">
@@ -23,17 +23,17 @@
     </div>
      <!-- Named slot -->
     <slot name="description"></slot>
-     </MyContainer>
+    
 </template>
 
 <script>
 // import ApartmentsItem from '@/components/apartment/ApartmentsItem'
-import MyContainer from '@/components/shared/MyContainer.vue'
+// import MyContainer from '@/components/shared/MyContainer.vue'
     export default {
         name: 'ApartmentsList',
         components: {
             // ApartmentsItem,
-            MyContainer
+            // MyContainer
         },
         props: {
             items: {

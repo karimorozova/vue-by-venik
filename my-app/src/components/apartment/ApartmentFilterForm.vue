@@ -1,16 +1,16 @@
 <template>
-<MyContainer> 
+ 
     <form class="form" @submit.prevent="onFormSubmit">
 <CustomSelect :items="cities" v-model="city" class="form__select"/>
 <CustomInput v-model="price" placeholder="Price, from"/>
 
 <MyButton class="form__submit" type="submit">Order apartment</MyButton>
     </form>
-    </MyContainer>
+   
 </template>
 
 <script>
-import MyContainer from '@/components/shared/MyContainer.vue'
+// import MyContainer from '@/components/shared/MyContainer.vue'
 import CustomInput from '@/components/shared/CustomInput.vue'
 import CustomSelect from '@/components/shared/CustomSelect.vue'
 import MyButton from '@/components/MyButton.vue'
@@ -20,7 +20,7 @@ import MyButton from '@/components/MyButton.vue'
             CustomInput,
             CustomSelect,
             MyButton,
-            MyContainer
+            // MyContainer
         },
         data() {
             return {

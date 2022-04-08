@@ -1,7 +1,5 @@
 <template>
-    <div>
-
-    </div>
+    <img src="@/assets/svg/logo.svg" alt="">
 </template>
 
 <script>
