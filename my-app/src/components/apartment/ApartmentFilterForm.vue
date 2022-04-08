@@ -50,6 +50,7 @@ import MyButton from '@/components/MyButton.vue'
 <style lang="scss" scoped>
 .form {
   display: flex;
+  margin-bottom: 30px;
   &__select {
     margin-right: 30px;
   }
