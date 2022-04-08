@@ -3,8 +3,10 @@
    <h2>{{text}}</h2>
    <!-- <input type="text" v-model="text">  -->
    <CustomInput v-model="text" />
+   <CustomSelect v-model="selectedSort" :items="['kiwi', 'tomato', 'teal']" />
+   <!-- <my-select v-model="selectedSort" :options="sortOptions"/> -->
    <ApartmentsList :items="apartments">
-     <template v-slot:title>My title</template>
+     <!-- <template v-slot:title>My title</template> -->
      <template v-slot:apartment="{ apartment }">
        <ApartmentsItem
         :key="apartment.id"
@@ -34,6 +36,7 @@ import ApartmentsItem from '@/components/apartment/ApartmentsItem'
 import ApartmentsList from '@/components/apartment/ApartmentsList.vue'
 import apartments from '@/components/apartment/apartments.js'
 import CustomInput from '@/components/shared/CustomInput.vue'
+import CustomSelect from '@/components/shared/CustomSelect.vue'
 
 export default {
   name: 'App',
@@ -41,12 +44,14 @@ export default {
   //  StarRating,
    ApartmentsList,
    ApartmentsItem,
-   CustomInput
+   CustomInput,
+   CustomSelect
   },
   data() {
     return {
       apartments,
-      text: ''
+      text: '',
+      selectedSort: ''
     }
   },
   computed: {
