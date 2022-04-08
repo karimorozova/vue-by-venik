@@ -35,7 +35,10 @@ import MyButton from '@/components/MyButton.vue'
         },
         methods: {
             onFormSubmit() {
-                this.$emit('submit', {city: this.city, price: this.price})
+                this.$emit('submit', {
+        city: this.city,
+        price: this.price,
+      });
             }
         },
     }
