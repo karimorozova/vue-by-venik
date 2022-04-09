@@ -13,7 +13,11 @@
         name: 'ApartmentPage',
         components: {
             MyContainer,
-        }
+        },
+        mounted() {
+            console.log(this.$route.query.name)
+            console.log(this.$route.params.id)
+        },
     }
 </script>
 

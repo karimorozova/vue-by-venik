@@ -3,6 +3,8 @@ import FooPage from '@/pages/FooPage'
 import BarPage from '@/pages/BarPage'
 import HomePage from '@/pages/HomePage'
 import ApartmentPage from '@/pages/ApartmentPage'
+import ErrorPage from '@/pages/ErrorPage'
+
 
 
 const routes = [
@@ -20,9 +22,14 @@ const routes = [
         name: 'homepage'
     },
     {
-        path: '/apartment',
+        path: '/apartments/:id',
         component: ApartmentPage,
         name: 'apartment'
+    },
+    {
+        path: "/:pathMatch(.*)*",
+        component: ErrorPage,
+        name: 'error-page'
     }
 ]
 

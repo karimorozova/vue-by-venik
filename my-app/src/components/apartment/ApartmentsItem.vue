@@ -13,7 +13,7 @@
                 <div class="apartments-item__price">
                    UAH {{ price }}
                 </div>
-                <router-link :to="{ name: 'apartment' }" class="apartments-item__link">Click me</router-link>
+                <router-link :to="{ name: 'apartment', params: { id }, query: { name: 'Kari' } }" class="apartments-item__link">Click me</router-link>
             </div>
             
         </div>
@@ -28,6 +28,10 @@
             StarRating
         },
         props: {
+            id: {
+              type: String,
+              required: true
+            },
             description: {
                 type: String,
                 default: ''
