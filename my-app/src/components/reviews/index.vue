@@ -1,22 +1,61 @@
 <template>
     <section class="reviews">
-        <ReviewsItem v-for="review in reviews" :key="review.author" :review="review" />
+        <div class="reviews__heading">
+            <h2 class="reviews__title">Summary rating</h2>
+            <div class="reviews__rating">
+                <span>{{amountOfReviews}} review(s)</span>
+                <StarRating :rating="totalRating"></StarRating>
+            </div>
+        </div>
+        <ReviewsItem v-for="review in currentReviews" :key="review.author" :review="review" />
+        <button @click="toggleReviews" class="reviews__show-more">{{buttonText}}</button>
     </section>
 </template>
 
 <script>
 import ReviewsItem from '@/components/reviews/reviews-item/index.vue'
+import StarRating from '@/components/StarRating.vue'
     export default {
         name: 'ReviewsComponent',
         components: {
-            ReviewsItem
+            ReviewsItem,
+            StarRating
+        },
+        data() {
+            return {
+                reviewsLimit: 2
+            }
         },
         props: {
              reviews: {
                  type: Array,
                  required: true
              }
-        }
+        },
+        computed: {
+            totalRating() {
+                const total = this.reviews.reduce((acc, review) => acc + review.rating, 0 )
+                return total / this.reviews.length
+            },
+            amountOfReviews() {
+                return this.reviews.length
+            },
+            currentReviews() {
+                return this.reviews.slice(0, this.reviewsLimit)
+            },
+            buttonText() {
+                return this.reviewsLimit === this.reviews.length ? "Go back" : "More..."
+            }
+        }, 
+        methods: {
+            toggleReviews() {
+                if(this.reviewsLimit === this.reviews.length) {
+                    this.reviewsLimit = 2
+                    return
+                }
+                this.reviewsLimit = this.reviews.length
+            }
+        },
     }
 </script>
 
