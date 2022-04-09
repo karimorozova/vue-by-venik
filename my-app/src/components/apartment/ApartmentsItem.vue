@@ -13,8 +13,9 @@
                 <div class="apartments-item__price">
                    UAH {{ price }}
                 </div>
-                <a href="https://google.com" @click.prevent.stop="onLinkClick">Google</a>
+                <router-link :to="{ name: 'apartment' }" class="apartments-item__link">Click me</router-link>
             </div>
+            
         </div>
     </div>
 </template>
