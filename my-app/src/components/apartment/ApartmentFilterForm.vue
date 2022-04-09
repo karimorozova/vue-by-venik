@@ -22,6 +22,7 @@ import MyButton from '@/components/MyButton.vue'
             MyButton,
             // MyContainer
         },
+        emits: ['submit'],
         data() {
             return {
                 
