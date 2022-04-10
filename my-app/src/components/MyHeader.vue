@@ -2,7 +2,10 @@
 
     <header class="header">
         <MyContainer>
-            <MyLogo />
+            <router-link to="/">
+                <MyLogo />
+             </router-link>
+            
         </MyContainer>
     </header>
     

@@ -2,5 +2,8 @@
   "devDependencies": {
     "node-sass": "^7.0.1",
     "sass-loader": "^12.6.0"
+  },
+  "dependencies": {
+    "axios": "^0.26.1"
   }
 }

@@ -1,7 +1,7 @@
 <template>
     <main class="apartment-page">
         <MyContainer>
-            <div class="apartment-page__content">
+            <div v-if="apartment" class="apartment-page__content">
               <ApartmentsMainInfo :apartment="apartment" />
               <div class="apartment-page_additional-info">
                   <ApartmentsOwner class="apartment-page__owner" :owner="apartment.owner" />
@@ -16,11 +16,12 @@
 
 <script>
   import MyContainer from '@/components/shared/MyContainer.vue'
-  import apartments from '@/components/apartment/apartments.js'
+//   import apartments from '@/components/apartment/apartments.js'
   import ApartmentsMainInfo from '@/components/apartment/ApartmentsMainInfo.vue'
   import ApartmentsOwner from '@/components/apartment/ApartmentsOwner.vue'
   import ReviewsComponent from '@/components/reviews'
   import reviewsList from '@/components/reviews/reviews.json'
+  import { getApartmentById } from '@/services/apartment.service.js'
     export default {
         name: 'ApartmentPage',
         components: {
@@ -30,22 +31,42 @@
             ReviewsComponent,
             
         },
-        // data() {
-        //     return {
-        //         reviewsList
-        //     }
-        // },
+        data() {
+            return {
+                apartment: null
+            }
+        },
         computed: {
             reviewsList() {
                 return reviewsList
-            },
-            apartment() {
-                return apartments.find(apartment => apartment.id === this.$route.params.id)
             }
         },
+        beforeCreate() {
+            console.log(this.reviewsList, '-----beforeCreate')
+        },
+        async created() {
+            try {
+                const { id } = this.$route.params
+                const { data } = await getApartmentById(id)
+                console.log(data)
+                this.apartment = data
+
+            } catch(error) {
+                console.error(error)
+            }
+        },
+        beforeMount() {
+            console.log(this.$el, '-----beforeMount')
+        },
         mounted() {
-            console.log(this.apartment);
-        }
+            console.log(this.$el, '-----mounted')
+        },
+        beforeUnmount() {
+            console.log(this.$el, '-----beforeUnmount')
+        },
+        unmounted() {
+            console.log(this.$el, '-----unmounted')
+        },
         // mounted() {
         //     console.log(this.$route.query.name)
         //     console.log(this.$route.params.id)
