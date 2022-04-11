@@ -13,7 +13,7 @@
                 <div class="apartments-item__price">
                    UAH {{ price }}
                 </div>
-                <router-link :to="{ name: 'apartment', params: { id }, query: { name: 'Kari' } }" class="apartments-item__link">Click me</router-link>
+                <router-link :to="{ name: 'apartment', params: { id }, query: { name: 'Kari' } }" class="apartments-item__link"></router-link>
             </div>
             
         </div>

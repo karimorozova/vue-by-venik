@@ -1,19 +1,49 @@
 <template>
-    <input @input="inputValue" :value="modelValue" class="custom-input">
+<div class="wrapper-input">
+  <input @input="inputValue" :value="modelValue" class="custom-input" placeholder="Price, from">
+  <span v-if="!isValid" class="custom-input__error">{{errorMessage}}</span>
+</div>
+    
 </template>
 
 <script>
     export default {
         name: 'CustomInput',
+        data() {
+          return {
+            isValid: true
+          }
+        },
          props: {
-        modelValue: [String, Number]
-    },
+          modelValue: [String, Number],
+          // value: {
+          //   type: String,
+          //   default: ''
+          // },
+          // errorMessage: {
+          //   type: String,
+          //   default: ''
+          // },
+          // rules: {
+          //   type: Array,
+          //   default: () => []
+          // }
+        },
         methods: {
-        inputValue(e) {
+          inputValue(e) {
             this.$emit('update:modelValue', e.target.value)
-        }
+          },
+          // validate(value) {
+          //   this.isValid = this.rules.every(rule => rule(value))
+          // }
+        },
+        // watch: {
+        //   value(modelValue) {
+        //     this.validate(modelValue)
+        //     console.log(modelValue)
+        //   }
+        // }
     }
-        }
     
 </script>
 
